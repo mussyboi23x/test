@@ -1,68 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>3D Gun with Mouse Movement</title>
+    <title>Stickman Hook (Proxied)</title>
     <style>
         body { margin: 0; overflow: hidden; }
-        canvas { width: 100%; height: 100%; display: block; }
+        iframe { width: 100vw; height: 100vh; border: none; }
     </style>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        // Gun Geometry (Simplified)
-        const gunGeometry = new THREE.BoxGeometry(0.2, 0.1, 1);
-        const gunMaterial = new THREE.MeshBasicMaterial({ color: 0x808080 }); // Gray color
-        const gun = new THREE.Mesh(gunGeometry, gunMaterial);
-        scene.add(gun);
-
-        // Position the gun
-        gun.position.set(0, -0.5, -2); // Lower and closer to the camera
-
-        // Camera setup
-        camera.position.z = 0; // Camera is at the origin
-        camera.position.y = 0;
-
-        // Mouse movement variables
-        let mouseX = 0;
-        let mouseY = 0;
-        let targetRotationX = 0;
-        let targetRotationY = 0;
-
-        document.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-
-            targetRotationX = mouseY * 0.5; // Adjust sensitivity
-            targetRotationY = mouseX * 0.5;
-        });
-
-        const animate = function () {
-            requestAnimationFrame(animate);
-
-            // Smooth rotation
-            gun.rotation.x += (targetRotationX - gun.rotation.x) * 0.1;
-            gun.rotation.y += (targetRotationY - gun.rotation.y) * 0.1;
-
-            renderer.render(scene, camera);
-        };
-
-        animate();
-
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
-
-        window.addEventListener('resize', onWindowResize, false);
-
-    </script>
+    <iframe src="https://loki.42web.io/index.php?q=aHR0cHM6Ly9zdGlja21hbmhvb2suY29tLw=="></iframe>
 </body>
 </html>
